@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.where(validated: true)
+    @items = Item.all
   end 
 
   def show
