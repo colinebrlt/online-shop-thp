@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+3.times do |i|
+  User.create(email: "thp.chaton#{i}@yopmail.com", password: "123456")
+end
+
+puts "3 ont été créés !"
+
+5.times do |i|
+  Item.create(title: Faker::Name.first_name, description: Faker::Lorem.paragraph(sentence_count: 5, supplemental: true), price: rand(1..500), image_url: "http://placekitten.com/300/30#{i}",)
+end
+
+puts "5 chatons ont été créés !"
