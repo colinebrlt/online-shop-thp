@@ -1,0 +1,7 @@
+.jumbo-img {
+  -webkit-transform: rotate(20deg);
+   -moz-transform: rotate(20deg);
+   -ms-transform: rotate(20deg);
+   -o-transform: rotate(20deg);
+   transform: rotate(20deg);
+}
