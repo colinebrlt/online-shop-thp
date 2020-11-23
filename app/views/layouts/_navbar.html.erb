@@ -1,25 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Boutique de Châtons</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <%= link_to "Boutique de chatons", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor03">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Acceuil</a>
-      </li>
+      <li class="nav-item">
+        <%= link_to "Accueil", root_path, class: "nav-item active nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Panier</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Se connecter</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Se connecter</a>
-          <a class="dropdown-item" href="#">S'inscrire</a>
-        </div>
+        <%= link_to "Panier", root_path, class: "nav-link" %>
       </li>
     </ul>
+
+    <% if user_signed_in? %>
+      <div class="nav-item dropdown">
+        <a class="nav-link btn btn-info dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.email %>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Sign out", destroy_user_session_path, class: "nav-link btn btn-outline-danger mx-2 my-2", method: :delete %>
+        </div>
+      </div>
+        
+    <% else %>
+      <div class="nav-item dropdown">
+        <a class="nav-link btn btn-outline-info dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Se connecter
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Inscription", new_user_registration_path, class: "nav-link btn btn-warning mx-2 my-2" %>
+          <%= link_to "Connexion", new_user_session_path, class: "nav-link btn btn-warning mx-2 my-2" %>        
+        </div>
+      </div>
+    <% end %> 
   </div>
 </nav>
