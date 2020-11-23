@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def index
-    # Find the card molecule for the index page at /views/index.html.erb
+    # Find the card molecule for the index page at /views/_index_card.html.erb
   end 
 
   def show
