@@ -5,3 +5,10 @@
    -o-transform: rotate(20deg);
    transform: rotate(20deg);
 }
+
+.footer-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
