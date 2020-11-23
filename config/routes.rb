@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   
-  root 'static_pages#index'
+  root 'items#index'
   resources :static_pages
+  resources :items
 end
