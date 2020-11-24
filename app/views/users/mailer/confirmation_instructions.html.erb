@@ -1,5 +1,6 @@
 <div class="container">
-  <p>Bienvenue <%= @email %>!</p>
+  <!-- Check if the User has a first name -->
+  <p>Bienvenue <% @resource.has_first_name? ? @resource.first_name.capitalize : "" %>!</p>
 
   <p>Vous pouvez confirmer l'e-mail de votre compte via le lien ci-dessous:</p>
 

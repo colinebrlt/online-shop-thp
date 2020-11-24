@@ -1,0 +1,11 @@
+<%= render 'shared_mailer/head_mailer '%>
+    <h1>Une commande en cours !</h1>
+    <p>
+      Le numéro de la commande est : <%= @cart.id %>
+    </p>
+    <p> 
+      Destinataire : <%= @user.email %> 
+    </p>
+<%= render "shared_mailer/footer_mailer "%>
+ 
+
