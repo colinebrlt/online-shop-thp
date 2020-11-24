@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
+<%= render 'shared_mailer/head_mailer '%>
+
     <h1>Salut <% @user.has_first_name? ? @user.first_name.capitalize : "" %> et bienvenue chez nous !</h1>
     <p>
       Vous vous êtes inscrit sur CuteKittens.com en utilisant l'e-mail suivant : <%= @user.email %>.
@@ -12,5 +8,5 @@
       Pour accéder à votre espace client, vous devez d'abord confirmer votre adresse email puis connectez-vous via : <%= @url %>.
     </p>
     <p> À très vite sur CuteKittens.com !
-  </body>
-</html>
+
+<%= render "shared_mailer/footer_mailer "%>

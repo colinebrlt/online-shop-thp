@@ -9,12 +9,14 @@
       <li class="nav-item">
         <%= link_to "Accueil", root_path, class: "nav-item active nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Panier", root_path, class: "nav-link" %>
-      </li>
     </ul>
 
     <% if user_signed_in? %>
+      <div class="nav-item">
+        <%= link_to current_user.cart, class: "nav-link", style: "color: #606970" do %>
+          <i class="fas fa-shopping-basket fa-2x"></i>
+        <% end %>
+      </div>
       <div class="nav-item dropdown">
         <a class="nav-link btn btn-primary dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.has_first_name? %>

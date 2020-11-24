@@ -17,7 +17,7 @@
           </ul>
           <div class="card-body">
             <div class="row justify-content-around">
-              <button type="button" class="btn btn-success">Add to cart</button>
+              <%= link_to "Ajouter au panier", line_items_path(item_id: item.id), class: "btn btn-success", method: "post" %>
               <%= link_to "Voir les détails", item_path(item.id), class: "btn btn-outline-info" %>
             </div>
           </div>
