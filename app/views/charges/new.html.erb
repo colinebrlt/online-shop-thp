@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <h2>Paiement de la commande</h2>
+
+  <%= form_tag charges_path do %> # Changer le path !!!
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span>Prix: 12 € </span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button btn-success"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Paiement du panier"
+            data-label="Procéder au paiement"
+            data-amount= "1200" <%= # @stripe_amount %>
+            data-currency="eur"
+            data-locale="auto"></script>
+  <% end %>
+</div>

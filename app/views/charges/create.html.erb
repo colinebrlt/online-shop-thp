@@ -1,0 +1,7 @@
+<div class="container text-center mt-5">
+  <h2>Paiement accepté</h2>
+  <p>Vous avez payé <%=@amount%> € par carte bleue</p>
+  <p>Vous allez recevoir un email de confirmation à cette adresse : <%= @user.email %></p>
+  <h3>Merci, à bientôt</h3>
+  <%= link_to  "Accueil", root_path, class:"btn btn-primary" %>
+</div>
