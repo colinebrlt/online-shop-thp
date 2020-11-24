@@ -5,5 +5,4 @@ class Item < ApplicationRecord
   validates :description, length: { in: 20...5000 }
 
   has_many :line_items
-  has_many :carts, through: :line_items
 end
