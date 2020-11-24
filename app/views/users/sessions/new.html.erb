@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-signin mt-3" } do |f| %>
-        <h1 class="h3 mb-3 font-weight-normal text-center">S'inscrire</h1>
+        <h1 class="h3 mb-3 font-weight-normal text-center">Se connecter</h1>
         
         
         <div class="form-group">
@@ -19,12 +19,12 @@
         <% if devise_mapping.rememberable? %>
           <div class="form-group">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.label :remember_me, "Se souvenir de moi" %>
           </div>
         <% end %>
 
         <div class="actions mt-5">
-          <%= f.submit "Se connecter", class: "btn btn-lg btn-primary btn-block" %>
+          <%= f.submit "Se connecter", class: "btn btn-lg btn-primary d-flex mx-auto mb-3" %>
         </div>
       <% end %>
 
