@@ -17,3 +17,15 @@ puts "3 utilisateurs ont été créés !"
 end
 
 puts "5 chatons ont été créés !"
+
+User.all.each do |user|
+  Cart.create(user_id: user.id)
+end
+
+puts "Chaque utilisateur a son panier !"
+
+10.times do
+  LineItem.create(cart_id: Cart.all[rand(Cart.all.length)].id, item_id: Item.all[rand(Item.all.length)].id)
+end
+
+puts "10 lignes d'achat ont été ajoutées au hasard !"
