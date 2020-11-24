@@ -16,7 +16,7 @@
             <li class="list-group-item"><%= item.price %></li>
           </ul>
           <div class="card-body">
-            <button type="button" class="btn btn-success">Add to cart</button>
+            <li><%= link_to "Ajouter au panier", line_items_path(item_id: item.id), class: "btn btn-success", method: "post" %>
             <%= link_to "Voir les détails", item_path(item.id), class: "btn btn-outline-info" %></li>
           </div>
         </div>

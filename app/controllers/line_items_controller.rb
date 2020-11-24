@@ -7,20 +7,24 @@ class LineItemsController < ApplicationController
   # end 
 
   def edit
-  end 
+  end
 
   def create
-    @line_item = LineItem.new(line_items_params)
+    item = Item.find(params[:item_id])
+    # @line_item = LineItem.new(line_items_params)
+    @line_item = @cart.line_items.create(item_id: item.id)
 
-    if @line_item.save
-      format.html {redirect_to @line_item, notice: "Produit crée !"}
-      format.json {render :show, status: :created, location: @line_item}
-      format.js {}
-    else
-      format.html {render :new}
-      format.json {render json: @line_item.errors, status: :unprocessable_entity}
-      format.js {}
-    end 
+    respond_to do |format|
+      if @line_item.save
+        format.html {redirect_to root_path, notice: "Produit crée !"}
+        format.json {render :show, status: :created, location: @line_item}
+        format.js {}
+      else
+        format.html {render :new}
+        format.json {render json: @line_item.errors, status: :unprocessable_entity}
+        format.js {}
+      end 
+    end
   end
 
   def update
@@ -33,6 +37,7 @@ class LineItemsController < ApplicationController
         format.html {render :edit}
         format.json {render json: @line_item.errors, status: :unprocessable_entity}
         # format.js {}
+      end 
     end 
   end
 
