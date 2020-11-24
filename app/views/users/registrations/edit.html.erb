@@ -30,16 +30,17 @@
           <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
         </div>
 
-        <div class="actions mt-5">
+        <div class="actions mt-4">
           <%= f.submit "Mettre à jour", class: "btn btn-primary btn-block" %>
         </div><br />
       <% end %>
       
       <h1 class="h3 mb-3 font-weight-normal text-center">Tu veux supprimer ton compte ?</h1>
 
-      <div class="actions mt-3">
+      <div class="actions mt-4">
           <%= link_to "Supprimer mon compte", registration_path(resource_name), class: "nav-link btn btn-outline-danger", data: { confirm: "Es-tu sûr ?" }, method: :delete %>
       </div>
+      <br/><br/>
     </div>
   </div>
 </div>

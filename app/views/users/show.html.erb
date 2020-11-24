@@ -12,6 +12,25 @@
   <h4>Mon email</h4>
   <p><%= current_user.email %></p>
   <hr>
+
+  <h4>Mes commandes</h4>
+  
+  <% if @user_orders.count > 0%>
+    <div class="bg-white rounded box-shadow">
+      <% @user_orders.each do |order| %>
+        <div class="media pt-3">
+          <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">Commande n°<%= order.id %></strong>
+            Contenu de la commande
+          </p>
+        </div>
+      <% end %>
+    <div>
+  <% else %>
+    <p>Tu n'as encore passé aucune commande</p>
+    <hr>
+  <% end %>
+
   <br/><br/>
 
   <div class="text-center">
