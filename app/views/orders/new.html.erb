@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <h2>Paiement de la commande</h2>
 
-  <%= form_tag charges_path do %> # Changer le path !!!
+  <%= form_tag orders_path do %>
     <article>
       <% if flash[:error].present? %>
         <div id="error_explanation">
@@ -9,7 +9,7 @@
         </div>
       <% end %>
       <label class="amount">
-        <span>Prix: 12 € </span>
+        <span>Prix: <%= @cart.total_price %> </span>
       </label>
     </article>
 
@@ -17,7 +17,7 @@
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="Paiement du panier"
             data-label="Procéder au paiement"
-            data-amount= "1200" <%= # @stripe_amount %>
+            data-amount=<%= @cart.total_price * 100 %>
             data-currency="eur"
             data-locale="auto"></script>
   <% end %>

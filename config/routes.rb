@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items
   resources :users
-  resources :charges, only: [:create, :new] # A changer ?
+  resources :orders, only: [:create, :new]
   resources :carts, only: [:show, :update]
   resources :line_items, only: [:create, :update, :destroy]
 end
