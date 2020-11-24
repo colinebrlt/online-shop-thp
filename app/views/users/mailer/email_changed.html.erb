@@ -1,5 +1,6 @@
 <div class="container">
-  <p>Hello <%= @email %>!</p>
+  <!-- Check if the User has a first name -->
+  <p>Hello <% @resource.has_first_name? ? @resource.first_name.capitalize : "" %>!</p>
 
   <% if @resource.try(:unconfirmed_email?) %>
     <p>Nous vous contactons pour vous informer que votre adresse e-mail est en cours de modification <%= @resource.unconfirmed_email %>.</p>

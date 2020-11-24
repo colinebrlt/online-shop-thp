@@ -17,7 +17,11 @@
     <% if user_signed_in? %>
       <div class="nav-item dropdown">
         <a class="nav-link btn btn-primary dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= current_user.email %>
+          <% if current_user.has_first_name? %>
+            <%= current_user.first_name.capitalize %>
+          <% else %>
+            <%= current_user.email %>
+          <% end %>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <%= link_to "Mon profil", user_path(current_user.id), class: "nav-link btn btn-outline-primary mx-2 my-2" %>
