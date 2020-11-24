@@ -20,5 +20,11 @@ class Cart < ApplicationRecord
     end 
     
     return item
-  end 
+  end
+  
+  def empty
+    self.line_items.each do |line_item|
+      line_item.destroy
+    end
+  end
 end

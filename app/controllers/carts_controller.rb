@@ -6,5 +6,7 @@ class CartsController < ApplicationController
   end
 
   def update
+    @cart.empty
+    redirect_to cart_path
   end
 end
