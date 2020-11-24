@@ -4,6 +4,8 @@ class ChargesController < ApplicationController
   # Changer les routes
   # Clef API en prod
   # Views charges a changer ?
+  # Nested ressources order et cart ?
+  
   before_action :amounts
 
 
