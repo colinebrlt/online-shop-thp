@@ -51,9 +51,11 @@
         </div>
       <% end %>
 
-      <h3>Effacer votre compte</h3>
+      <hr />
+      <h3 class="h3 mb-3 font-weight-normal text-center">Effacer votre compte</h3>
 
-      <p>Non heureux de nos services? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes vous sur?" }, method: :delete %></p>
+      <p class="font-weight-normal text-center">Non heureux de nos services? </p>
+      <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes vous sur?" }, method: :delete, class: "btn btn-lg btn-primary d-flex mx-auto mb-3" %>
 
       <%= link_to "Retour", :back %>
 
