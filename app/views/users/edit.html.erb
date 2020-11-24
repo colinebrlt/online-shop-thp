@@ -1,0 +1,23 @@
+<div class="container w-50">
+
+  <h2 class="my-5 text-center" > Edite ton profil </h2>
+
+  <%= form_for @user do |f| %>
+
+    <div class="form-group">
+      <label>Prénom</label>
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>Nom</label>
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </div>
+
+  <% end %>  
+  
+</div>
