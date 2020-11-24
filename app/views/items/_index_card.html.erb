@@ -13,11 +13,13 @@
             <p class="card-text"><%= truncate(item.description, length: 100) %></p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><%= item.price %></li>
+            <li class="list-group-item text-center display-4"><%= item.price %> €</li>
           </ul>
           <div class="card-body">
-            <button type="button" class="btn btn-success">Add to cart</button>
-            <%= link_to "Voir les détails", item_path(item.id), class: "btn btn-outline-info" %></li>
+            <div class="row justify-content-around">
+              <button type="button" class="btn btn-success">Add to cart</button>
+              <%= link_to "Voir les détails", item_path(item.id), class: "btn btn-outline-info" %>
+            </div>
           </div>
         </div>
       </div>
