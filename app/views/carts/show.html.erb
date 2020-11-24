@@ -3,8 +3,28 @@
   <div class="row">
     <div class="col-8">
       <div class="rounded box-shadow">
-        <h5 class="border-bottom border-gray pb-2 mb-0">Mon panier</h6>
+        <h5 class="border-bottom border-gray pb-2 mb-0 mr-2">Mon panier</h6>
         <%if @cart.line_items.count > 0%>
+          <div class="row border-bottom border-gray py-2 mb-2 mr-2">
+            <div class="col-3"></div>
+            <div class="col-9">
+              <div class="row">
+                <div class="col-3"></div>
+                <div class="col-3 small text-center">
+                  Prix à l'unité
+                </div>
+                <div class="col-1 small text-center">
+                  Qté
+                </div>
+                <div class="col-3 small text-center">
+                  Prix total
+                </div>
+                <div class="col-2 small text-center">
+                  Actions
+                </div>
+              </div>
+            </div>
+          </div>
           <%= render partial: 'line_item', collection: @cart.line_items %>
         <% else %>
           <p class="pt-3">Votre panier est vide</p>

@@ -1,42 +1,29 @@
 <% item = line_item.item %>
 
-<div class="row border-bottom border-gray">
-  <div class="col-5">
-    <div class="media pt-3">
-      <%= image_tag item.image_url, class: "mr-2 m-auto p-1", style: "width: 4vw; height: 4vw; object-fit: cover; border-radius: 10px", alt: "cat picture" %>
-      <%# <img src="https://images.pexels.com/photos/1103832/pexels-photo-1103832.jpeg?cs=srgb&dl=pexels-oliver-sj%C3%B6str%C3%B6m-1103832.jpg&fm=jpg" alt="" class="mr-2 rounded m-auto mr-2" style="width: 4vw; height: 4vw; object-fit: cover;"> %>
-      <p class="media-body pb-3 mb-0 small lh-125">
-        <strong class="d-block text-gray-dark"><%= item.title %></strong>
-      </p>
-    </div>
+<div class="row border-bottom border-gray mr-1">
+  <div class="col-1">
+    <%= image_tag item.image_url, class: "old p-1", alt: "cat picture" %>
+    <%# <img src="https://images.pexels.com/photos/1103832/pexels-photo-1103832.jpeg?cs=srgb&dl=pexels-oliver-sj%C3%B6str%C3%B6m-1103832.jpg&fm=jpg" alt="" class="mr-2 rounded m-auto mr-2" style="width: 4vw; height: 4vw; object-fit: cover;"> %>
   </div>
-  <div class="col-7">
+  <div class="col-2 d-flex align-items-center">
+    <p class="ml-3">
+      <strong class="text-gray-dark"><%= item.title %></strong>
+    </p>
+  </div>
+  
+  <div class="col-9">
     <div class="row">
-      <div class="col-2 small text-center">
-        Prix à l'unité
+      <div class="col-3"></div>
+      <div class="col-3 text-center">
+        <%= item.price %> €
       </div>
-      <div class="col-2 small text-center">
-        Qté
-      </div>
-      <div class="col-2 small">
-        Prix total
-      </div>
-      <div class="col-6 small">
-        Actions
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-2 text-center">
-        <%= item.price %>
-      </div>
-      <div class="col-2 text-center">
+      <div class="col-1 text-center">
         <%= line_item.quantity %>
       </div>
-      <div class="col-2">
-        <%= line_item.total %>
+      <div class="col-3 text-center">
+        <%= line_item.total %> €
       </div>
-      <div class="col-6">
+      <div class="col-2 text-center">
         <%= link_to root_path, class: "text-danger p-2" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
