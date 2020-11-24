@@ -4,19 +4,8 @@
     <div class="col-md-6 offset-md-3">
       <br><br><br>
       
-
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-signin mt-3" }) do |f| %>
-        <h1 class="h3 mb-3 font-weight-normal text-center">Edition de votre compte <%= resource_name.to_s.humanize %></h1>
-        
-        <div class="form-group">
-          <%= f.label :first_name, "Votre prénom" %><br />
-          <%= f.text_field :first_name, class: "form-control" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :last_name, "Votre nom" %><br />
-          <%= f.text_field :last_name, class: "form-control" %>
-        </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-signin" }) do |f| %>
+        <h1 class="h3 mb-3 font-weight-normal text-center">Editez votre compte <%= resource_name.to_s.humanize %></h1>
 
         <div class="form-group">
           <%= f.label :email, "Email" %><br />
@@ -24,40 +13,34 @@
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>En attente de confirmation pour: <%= resource.unconfirmed_email %></div>
+          <div>Profil en attente de confirmation pour: <%= resource.unconfirmed_email %></div>
         <% end %>
 
         <div class="form-group">
-          <%= f.label :password, "Mot de passe" %> <i>(laissez vide si vous ne voulez pas le changer)</i><br />
+          <%= f.label :password, "Nouveau mot de passe" %> <i>(laissez vide si vous ne voulez pas le changer)</i><br />
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-          <% if @minimum_password_length %>
-            <br />
-            <em><%= @minimum_password_length %> caractères minimum</em>
-          <% end %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation, "Confirmer le mot de passe" %><br />
+          <%= f.label :password_confirmation, "Confirmation du nouveau mot de passe" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :current_password, "Ancien mot de passe" %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</i><br />
+          <%= f.label :current_password, "Mot de passe actuel" %> <i>(nécessaire afin de confirmer les modifications)</i><br />
           <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
         </div>
 
-        <div class="actions mt-5">
-          <%= f.submit "Modifier", class: "btn btn-lg btn-primary d-flex mx-auto mb-3" %>
+        <div class="actions mt-4">
+          <%= f.submit "Mettre à jour", class: "btn btn-block btn-primary mb-3" %>
         </div>
       <% end %>
 
       <hr />
-      <h3 class="h3 mb-3 font-weight-normal text-center">Effacer votre compte</h3>
+      <h3 class="h3 mb-3 font-weight-normal text-center">Supprimez votre compte</h3>
+      <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sur ?" }, method: :delete, class: "btn btn-block btn-danger mb-3" %>
 
-      <p class="font-weight-normal text-center">Non heureux de nos services? </p>
-      <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes vous sur?" }, method: :delete, class: "btn btn-lg btn-primary d-flex mx-auto mb-3" %>
-
-      <%= link_to "Retour", :back %>
+      <%= link_to "Retour vers page profil", :back %>
 
     </div>
   </div>
