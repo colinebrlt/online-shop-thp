@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  get 'line_items/create'
+  get 'line_items/update'
+  get 'line_items/destroy'
   get 'carts/show'
   get 'carts/update'
   get 'carts/destroy'
@@ -9,5 +12,5 @@ Rails.application.routes.draw do
   resources :items
   resources :users
   resources :carts, only: [:show, :update, :destroy]
-  resources :line_items
+  resources :line_items, only: [:create, :update, :destroy]
 end
