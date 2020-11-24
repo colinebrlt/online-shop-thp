@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-5">
   <%= devise_error_messages! %>
   <div class="row">
     <div class="col-md-6 offset-md-3">
@@ -7,11 +7,11 @@
         <h1 class="h3 mb-3 font-weight-normal text-center">S'inscrire</h1>
         
         <div class="form-group">
-          <%= f.label :first_name %><br />
+          <%= f.label :first_name, "Votre prénom" %><br />
           <%= f.text_field :first_name, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :last_name %><br />
+          <%= f.label :last_name, "Votre nom" %><br />
           <%= f.text_field :last_name, class: "form-control" %>
         </div>
         <div class="form-group">
@@ -30,7 +30,7 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         </div>
         <div class="actions mt-5">
-          <%= f.submit "S'inscrire", class: "btn btn-lg btn-primary btn-block" %>
+          <%= f.submit "S'inscrire", class: "btn btn-lg btn-primary d-flex mx-auto mb-3" %>
         </div>
       <% end %>
       <%= render "users/shared/links" %>
