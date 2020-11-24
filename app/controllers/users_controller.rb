@@ -2,8 +2,11 @@ class UsersController < ApplicationController
   before_action :check_user
 
   def show
-    @user = User.find(params[:id])
     @user_orders = User.find(params[:id]).orders
+  end 
+
+  def create
+    Cart.create(user_id: @user.id)
   end 
 
   def edit

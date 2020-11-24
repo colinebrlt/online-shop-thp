@@ -1,0 +1,47 @@
+<div class="rounded box-shadow w-50">
+  <h5 class="border-bottom border-gray pb-2 mb-0">Votre panier</h6>
+  <div class="row">
+    <div class="col-6">
+      <div class="media pt-3">
+        <%= image_tag item.image_url, class: "mr-2 rounded m-auto", style: "width: 4vw; height: 4vw; object-fit: cover;", alt: "cat picture" %>
+        <%# <img src="https://images.pexels.com/photos/1103832/pexels-photo-1103832.jpeg?cs=srgb&dl=pexels-oliver-sj%C3%B6str%C3%B6m-1103832.jpg&fm=jpg" alt="" class="mr-2 rounded m-auto mr-2" style="width: 4vw; height: 4vw; object-fit: cover;"> %>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark"><%= item.title %></strong>
+          <%= truncate(item.description, length: 100) %> 
+        </p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-2">
+          Prix unitaire
+        </div>
+        <div class="col-2">
+          Quantité
+        </div>
+        <div class="col-2">
+          Prix total
+        </div>
+        <div class="col-6">
+          Boutons
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">
+          <%= item.price %>
+        </div>
+        <div class="col-2">
+          <%= item.quantity %>
+        </div>
+        <div class="col-2">
+          <%= item.total %>
+        </div>
+        <div class="col-6">
+          Boutons
+          <%= button_to "Supprimmer l'article", class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
