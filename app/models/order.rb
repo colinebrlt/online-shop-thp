@@ -18,4 +18,12 @@ class Order < ApplicationRecord
     end
   end
 
+  def total_price
+    total = 0
+    self.order_line_items.each do |order_line_item|
+      total += order_line_item.item.price * order_line_item.quantity
+    end
+    return total
+  end
+
 end
