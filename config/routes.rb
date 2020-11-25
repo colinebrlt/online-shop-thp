@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
-  
-  get 'line_items/create'
-  get 'line_items/update'
-  get 'line_items/destroy'
-  get 'carts/show'
-  get 'carts/update'
-  get 'carts/destroy'
+  root 'items#index'
+
   devise_for :users
   
-  root 'items#index'
   resources :items
   resources :users
   resources :orders, only: [:create, :new]
