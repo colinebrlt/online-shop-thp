@@ -12,4 +12,3 @@
   flex-direction: column;
   justify-content: space-between;
 }
-add_column :carts, :quantity, :integer, default: 1
