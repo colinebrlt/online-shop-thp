@@ -1,4 +1,4 @@
-<% item = line_item.item %>
+<% item = order_line_item.item %>
 
 <div class="row border-bottom border-gray mr-1">
   <div class="col-1">
@@ -6,9 +6,11 @@
     <%# <img src="https://images.pexels.com/photos/1103832/pexels-photo-1103832.jpeg?cs=srgb&dl=pexels-oliver-sj%C3%B6str%C3%B6m-1103832.jpg&fm=jpg" alt="" class="mr-2 rounded m-auto mr-2" style="width: 4vw; height: 4vw; object-fit: cover;"> %>
   </div>
   <div class="col-2 d-flex align-items-center">
-    <p class="ml-3">
-      <strong class="text-gray-dark"><%= item.title %></strong>
-    </p>
+    <%= link_to item, class: "text-decoration-none" do %>
+      <p class="ml-3">
+        <strong class="text-dark"><%= item.title %></strong>
+      </p>
+    <% end %>
   </div>
   
   <div class="col-9">
@@ -18,10 +20,10 @@
         <%= item.price %> €
       </div>
       <div class="col-1 text-center">
-        <%= line_item.quantity %>
+        <%= order_line_item.quantity %>
       </div>
       <div class="col-3 text-center">
-        <%= line_item.total %> €
+        <%= order_line_item.total %> €
       </div>
     </div>
   </div>

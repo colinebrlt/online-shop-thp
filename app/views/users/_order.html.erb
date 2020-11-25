@@ -1,25 +1,17 @@
 <div class="row border-bottom border-gray py-2 mb-2 mr-2">
-  <div class="col-3">
-      <%= order.created_at %>
-    </div>
-    <div class="col-3 small text-center">
-      <%= order.created_at %>
-    </div>
-    <div class="col-3 small text-center">
-      Prix total
-    </div>
-    <div class="col-3 small text-center">
-      Actions
-    </div>
+  <div class="col-1">
+    <%= index %>
   </div>
-</div>
-
-<div class="media pt-3">
-  <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-    <strong class="d-block text-gray-dark">Commande n°<%= order.id %></strong>
-    <% order.order_line_items.each do |order_line_item| %>
-      <p><%= order_line_item.item.image_url %></p>
-    <% end %>
-    Contenu de la commande
-  </p>
+  <div class="col-3">
+    <%= order.created_at.strftime('%Y/%m/%d') %>
+  </div>
+  <div class="col-2 small text-center">
+    <%= order.number_of_items %>
+  </div>
+  <div class="col-3 small text-center">
+    <%= order.total_price %> €
+  </div>
+  <div class="col-3 small text-center">
+    <%= link_to  "Voir la commande", order, class:"btn btn-info" %>
+  </div>
 </div>

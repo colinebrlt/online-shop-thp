@@ -1,9 +1,12 @@
 class OrdersController < ApplicationController
-  include CurrentCart
   before_action :set_cart, only: [:create]
   before_action :amounts
+  before_action :set_order, only: [:show]
 
   def new
+  end
+
+  def show
   end
   
   def create
@@ -30,6 +33,10 @@ class OrdersController < ApplicationController
     end
     
     private
+
+    def set_order
+      @order = Order.find(params[:id])
+    end
     
     def amounts # Make amount in eur, not in cent
       @cart = current_user.cart

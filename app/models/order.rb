@@ -28,7 +28,7 @@ class Order < ApplicationRecord
 
   def number_of_items
     total = 0
-    self.line_items.each do |order_line_item|
+    self.order_line_items.each do |order_line_item|
       total += order_line_item.quantity
     end
     return total

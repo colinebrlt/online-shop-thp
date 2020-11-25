@@ -1,5 +1,4 @@
 class LineItemsController < ApplicationController
-  include CurrentCart
   before_action :set_cart 
   before_action :set_line_item, only: [:destroy]
 

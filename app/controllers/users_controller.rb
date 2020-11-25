@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :check_user
+  before_action :set_cart
 
   def show
     @orders = current_user.orders

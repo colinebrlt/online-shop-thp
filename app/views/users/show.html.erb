@@ -15,13 +15,16 @@
 
   <h4>Mes commandes</h4>
   
-  <% if @user_orders.count > 0%>
+  <% if @orders.count > 0%>
     <div class="bg-white rounded box-shadow">
       <div class="row border-bottom border-gray py-2 mb-2 mr-2">
+        <div class="col-1">
+          N°
+        </div>
         <div class="col-3">
           Date de la commande
         </div>
-        <div class="col-3 small text-center">
+        <div class="col-2 small text-center">
           Nombre d'articles
         </div>
         <div class="col-3 small text-center">
@@ -31,8 +34,10 @@
           Actions
         </div>
       </div>
-      <% render partial: 'order', collection: @orders %>
-    <div>
+      <% @orders.each_with_index do |order, i| %>
+        <%= render 'order', order: order, index: i+1 %>
+      <% end %>
+    </div>
   <% else %>
     <p>Tu n'as encore passé aucune commande</p>
     <hr>
