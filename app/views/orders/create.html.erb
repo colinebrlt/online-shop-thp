@@ -3,5 +3,6 @@
   <p>Vous avez payé <%= @cart_amount %> € par carte bleue</p>
   <p>Vous allez recevoir un email de confirmation à cette adresse : <%= current_user.email %></p>
   <h3>Merci, à bientôt</h3>
-  <%= link_to  "Accueil", root_path, class:"btn btn-primary" %>
+  <%= link_to  "Accueil", root_path, class:"btn btn-primary m-2" %>
+  <%= link_to  "Voir ma commande", user_path(current_user.id), class:"btn btn-info m-2" %>
 </div>
