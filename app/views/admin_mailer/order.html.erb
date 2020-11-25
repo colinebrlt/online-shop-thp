@@ -6,10 +6,10 @@
   <body>
     <h1>Une commande en cours !</h1>
     <p>
-      Le numéro de la commande est : <%= @cart.id %>
+      Le numéro de la commande est : <%= @order.id %>
     </p>
     <p> 
-      Destinataire : <%= @user.email %> 
+      Destinataire : <%= @order.user.email %> 
     </p>
   </body>
 </html>
