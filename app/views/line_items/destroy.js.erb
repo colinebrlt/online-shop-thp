@@ -1,0 +1,11 @@
+document.getElementById("badge-number").innerHTML = "<%= @cart.number_of_items %>";
+document.getElementById("line-item-<%= @line_item.id %>").remove();
+
+<% if @cart.number_of_items == 0 %>
+  document.getElementById("empty-cart").remove();
+  document.getElementById("order-cart").remove();
+  document.getElementById("column-titles").remove();
+  document.getElementById("your-cart").insertAdjacentHTML("afterend", "<p class='pt-3'>Votre panier est vide</p>");
+<% end %>
+
+document.getElementById("order-price").innerHTML= "<%= @cart.total_price %>";

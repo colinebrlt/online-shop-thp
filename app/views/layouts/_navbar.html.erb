@@ -15,7 +15,7 @@
       <div class="nav-item">
         <%= link_to current_user.cart, class: "nav-link", style: "color: #606970" do %>
           <i class="fas fa-shopping-basket fa-2x"></i>
-          <span class="badge badge-pill badge-light"><strong><%= @cart.line_items.count %></strong></span>
+          <span class="badge badge-pill badge-light"><strong id="badge-number"><%= @cart.number_of_items %></strong></span>
         <% end %>
       </div>
       <div class="nav-item dropdown">

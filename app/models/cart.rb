@@ -27,4 +27,12 @@ class Cart < ApplicationRecord
       line_item.destroy
     end
   end
+
+  def number_of_items
+    total = 0
+    self.line_items.each do |line_item|
+      total += line_item.quantity
+    end
+    return total
+  end 
 end

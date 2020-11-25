@@ -1,6 +1,6 @@
 <% item = line_item.item %>
 
-<div class="row border-bottom border-gray mr-1">
+<div class="row border-bottom border-gray mr-1" id="line-item-<%= line_item.id %>">
   <div class="col-1">
     <%= image_tag item.image_url, class: "old p-1", alt: "cat picture" %>
     <%# <img src="https://images.pexels.com/photos/1103832/pexels-photo-1103832.jpeg?cs=srgb&dl=pexels-oliver-sj%C3%B6str%C3%B6m-1103832.jpg&fm=jpg" alt="" class="mr-2 rounded m-auto mr-2" style="width: 4vw; height: 4vw; object-fit: cover;"> %>
@@ -24,7 +24,7 @@
         <%= line_item.total %> €
       </div>
       <div class="col-2 text-center">
-        <%= link_to line_item, class: "text-danger p-2", method: "delete", data: {confirm: "Êtes-vous sûr(e) ?"} do %>
+        <%= link_to line_item, class: "text-danger p-2", method: "delete", data: {confirm: "Êtes-vous sûr(e) ?", remote: true} do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>

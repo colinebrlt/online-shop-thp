@@ -12,12 +12,11 @@ class LineItemsController < ApplicationController
 
   def create
     item = Item.find(params[:item_id])
-    # @line_item = LineItem.new(line_items_params)
     @line_item = @cart.line_items.create(item_id: item.id)
 
     respond_to do |format|
       if @line_item.save
-        format.html {redirect_to root_path, notice: "Produit crée !"}
+        format.html {redirect_to root_path, notice: "Produit ajouté au panier !"}
         format.json {render :show, status: :created, location: @line_item}
         format.js {}
       else
@@ -45,7 +44,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html {redirect_to @cart, notice: "Le produit a été supprimé"}
+      format.html {redirect_to @cart, notice: "Produit retiré du panier !"}
       format.json {head :no_content}
       format.js {}
     end 
