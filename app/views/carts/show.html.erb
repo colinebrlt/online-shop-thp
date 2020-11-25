@@ -3,9 +3,9 @@
   <div class="row">
     <div class="col-8">
       <div class="rounded box-shadow">
-        <h6 class="border-bottom border-gray pb-2 mb-0 mr-2">Mon panier</h6>
+        <h5 class="border-bottom border-gray pb-2 mb-0 mr-2" id="your-cart">Mon panier</h5>
         <%if @cart.line_items.count > 0%>
-          <div class="row border-bottom border-gray py-2 mb-2 mr-2">
+          <div class="row border-bottom border-gray py-2 mb-2 mr-2" id="column-titles">
             <div class="col-3"></div>
             <div class="col-9">
               <div class="row">
@@ -33,10 +33,10 @@
     </div>
     <div class="col-4">
       <h5 class="border-bottom border-gray pb-2 mb-0">Finaliser ma commande</h6>
-      <p class="pt-3">Total TTC de ma commande : <%= @cart.total_price%> €</p>
+      <p class="pt-3">Total TTC de ma commande : <span id="order-price"> <%= @cart.total_price%> </span> €</p>
       <% if @cart.line_items.count > 0 %>
-        <%= link_to "Vider mon panier", @cart, class: "btn btn-outline-danger", method: "put", data: { confirm: "Êtes-vous sûr(e) ?"} %>
-        <%= link_to "Passer ma commande", new_order_path(@cart.id), class: "btn btn-success" %>
+        <%= link_to "Vider mon panier", @cart, class: "btn btn-outline-danger", id: "empty-cart", method: "put", data: { confirm: "Êtes-vous sûr(e) ?"} %>
+        <%= link_to "Passer ma commande", new_order_path(@cart.id), class: "btn btn-success", id: "order-cart" %>
       <% end %>
       <p class="mt-2"><%= link_to "Continuer mes achats", root_path, class: "btn btn-outline-primary" %></p>
     </div>

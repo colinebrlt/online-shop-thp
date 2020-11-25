@@ -7,6 +7,10 @@ class CartsController < ApplicationController
 
   def update
     @cart.empty
-    redirect_to cart_path
+    respond_to do |format|
+      format.html {redirect_to @cart, notice: "Votre panier a été vidé"}
+      format.json {head :no_content}
+      format.js {}
+    end 
   end
 end
