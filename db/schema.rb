@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_103412) do
+ActiveRecord::Schema.define(version: 2020_11_25_145759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,20 @@ ActiveRecord::Schema.define(version: 2020_11_24_103412) do
     t.index ["item_id"], name: "index_line_items_on_item_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "cart_id"
+  create_table "order_line_items", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "item_id"
+    t.integer "quantity", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_orders_on_cart_id"
+    t.index ["item_id"], name: "index_order_line_items_on_item_id"
+    t.index ["order_id"], name: "index_order_line_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -68,4 +76,6 @@ ActiveRecord::Schema.define(version: 2020_11_24_103412) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "order_line_items", "items"
+  add_foreign_key "order_line_items", "orders"
 end

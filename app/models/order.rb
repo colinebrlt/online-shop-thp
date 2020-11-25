@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :cart
+  has_many :order_line_items
 
   # after_create :order_send_to_admin, :order_send_to_user
 
