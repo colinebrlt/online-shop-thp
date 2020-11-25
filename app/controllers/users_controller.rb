@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :check_user
 
   def show
-    @user_orders = User.find(params[:id]).orders
+    @orders = current_user.orders
   end 
 
   def create
