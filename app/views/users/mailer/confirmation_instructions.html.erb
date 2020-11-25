@@ -1,8 +1,12 @@
 <div class="container">
   <!-- Check if the User has a first name -->
-  <p>Bienvenue <% @resource.has_first_name? ? @resource.first_name.capitalize : "" %>!</p>
+  <h2>Bienvenue <% @resource.has_first_name? ? @resource.first_name.capitalize : "" %>!</h2>
 
-  <p>Vous pouvez confirmer l'e-mail de votre compte via le lien ci-dessous:</p>
+  <p>Nous sommes contents de vous compter parmis nous.</p>
+
+  <p>Afin de valider votre compte, pouvez-vous confirmer l'e-mail de votre compte via le lien ci-dessous:</p>
 
   <p><%= link_to 'Confirmer', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+  <p>Pour des règles de confidentialité, nous ne partageons pas votre email.</p>
 </div>

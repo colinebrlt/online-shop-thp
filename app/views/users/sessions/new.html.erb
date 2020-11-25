@@ -1,10 +1,10 @@
 <div class="container my-5 py-3">
-  <%= devise_error_messages! %>
+  
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-signin mt-3" } do |f| %>
         <h1 class="h3 mb-3 font-weight-normal text-center">Se connecter</h1>
-        
+        <%= devise_error_messages! %>
         
         <div class="form-group">
           <%= f.label :email, "Email" %><br />
