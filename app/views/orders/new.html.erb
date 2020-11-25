@@ -1,24 +1,57 @@
 <div class="container mt-5">
-  <h2>Paiement de la commande</h2>
+  <h2 class="text-center">Validation de la commande</h2>
 
-  <%= form_tag orders_path do %>
-    <article>
-      <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
+  <div class="container mt-5">
+    <h5>Récapitulatif du panier</h5>
+    <div class="container">
+      <div class="rounded box-shadow">
+        <div class="row border-bottom border-gray py-2 mb-2 mr-2">
+          <div class="col-3"></div>
+          <div class="col-9">
+            <div class="row">
+              <div class="col-3"></div>
+              <div class="col-3 small text-center">
+                Prix à l'unité
+              </div>
+              <div class="col-1 small text-center">
+                Qté
+              </div>
+              <div class="col-3 small text-center">
+                Prix total
+              </div>
+            </div>
+          </div>
         </div>
-      <% end %>
-      <label class="amount">
-        <span>Prix: <%= @cart_amount %> € </span>
-      </label>
-    </article>
+        <%= render partial: 'line_item', collection: @cart.line_items %>
+      </div>
+    </div>
+  </div>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button btn-success"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="Paiement du panier"
-            data-label="Procéder au paiement"
-            data-amount=<%= @stripe_amount %>
-            data-currency="eur"
-            data-locale="auto"></script>
-  <% end %>
+  <div class="container text-center mt-4">
+    <%= form_tag orders_path, method: "POST" do %>
+      <article>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+        <label class="amount">
+          <span><strong>Prix: <%= @cart_amount %> € </strong></span>
+        </label>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button "
+
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description="Paiement du panier"
+        data-amount=<%= @stripe_amount %>
+        data-currency="eur"
+        data-locale="auto"></script>
+        <script>
+          // Hide default stripe button using the DOM
+          document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+        </script>
+      <button type="submit" class="btn btn-success mt-2">Procéder au paiement</button>
+    <% end %>
+  </div>
 </div>

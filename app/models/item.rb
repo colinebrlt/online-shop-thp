@@ -5,4 +5,5 @@ class Item < ApplicationRecord
   validates :description, length: { in: 20...5000 }
 
   has_many :line_items
+  has_many :order_line_items
 end
