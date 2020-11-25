@@ -1,4 +1,9 @@
-<%= render 'shared_mailer/head_mailer '%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
 
     <h1>Salut <% @user.has_first_name? ? @user.first_name.capitalize : "" %> et bienvenue chez nous !</h1>
     <p>
@@ -9,4 +14,5 @@
     </p>
     <p> À très vite sur CuteKittens.com !
 
-<%= render "shared_mailer/footer_mailer "%>
+</body>
+</html>
