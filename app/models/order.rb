@@ -12,5 +12,10 @@ class Order < ApplicationRecord
   #   UserMailer.user_order(self.user, self.cart).deliver_now
   # end
 
+  def save_cart(cart)
+    cart.line_items.each do |line_item|
+      OrderLineItem.create(order_id: self.id, item_id: line_item.item.id, quantity: line_item.quantity)
+    end
+  end
 
 end
