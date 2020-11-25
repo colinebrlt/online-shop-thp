@@ -29,7 +29,6 @@ class LineItemsController < ApplicationController
   end
 
   def update
-
     respond_to do |format|
       if @line_item.update(line_items_params)
         format.html {redirect_to @line_item, notice: "Produit mis à jour !"}
