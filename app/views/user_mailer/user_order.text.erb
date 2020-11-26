@@ -1,9 +1,11 @@
-Salut <% @user.has_first_name? ? @user.first_name.capitalize : "" %>. 
+
 Nous vous remercions pour votre commande !
 ==========================================================
  
-Voici un récapitulatif de votre commande : 
- 
-Pour un total de : .
- 
+Nous vous remercions pour votre commande
+Voici un récapitulatif de votre commande :
+<% @order.order_line_items.each do |order_line| %>
+  <%= order_line.item.title %> pour <%= order_line.item.price %> €
+<% end %>
+Pour un total de : <%= @order.total_price %> €
 À très vite sur CuteKittens.com !

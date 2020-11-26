@@ -7,12 +7,13 @@
 
     <h1>Nous vous remercions pour votre commande</h1>
     <h2>Voici un récapitulatif de votre commande : </h2>
-    <p>
-      Prendre les cards depuis le panier 
-    </p>
-    <p>
-      Pour un total de : .
-    </p>
+    <% @order.order_line_items.each do |order_line| %>
+      <h3><strong class="text-dark"><%= order_line.item.title %></strong> pour <%= order_line.item.price %> €</h3>
+    <% end %>
+      <p>
+        Pour un total de : <%= @order.total_price %> €
+      </p>
+    
     <p> À très vite sur CuteKittens.com !
   </body>
 </html>
