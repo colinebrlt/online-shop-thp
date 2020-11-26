@@ -73,4 +73,5 @@ gem 'devise'
 gem 'stripe'
 gem 'rubocop'
 gem 'mailjet'
+gem 'friendly_id', '~> 5.4.0'
 gem "aws-sdk-s3", require: false
