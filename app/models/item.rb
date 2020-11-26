@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
   validates_presence_of :title, :description, :price, :image_url
   validates :title, uniqueness: { case_sensitive: false }
   validates :price, numericality: { grater_than_or_equal_to: 1 }
@@ -7,5 +8,8 @@ class Item < ApplicationRecord
   has_many :line_items
   has_many :order_line_items
 
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
 
 end

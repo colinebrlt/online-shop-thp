@@ -35,4 +35,8 @@ class Cart < ApplicationRecord
     end
     return total
   end 
+
+  def to_param
+    "#{id}-votre-panier-#{self.user.first_name.parameterize}"
+  end
 end
