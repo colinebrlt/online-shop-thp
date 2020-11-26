@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_cart, only: [:create]
   before_action :amounts
-  before_action :set_order, only: [:show]
+  before_action :find_order, only: [:show]
 
   def new
   end
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
     
     private
 
-    def set_order
+    def find_order
       @order = Order.find(params[:id])
     end
     
