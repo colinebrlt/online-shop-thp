@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :check_user
   before_action :set_cart
+  before_action :authenticate_user!           , except: [:create]
+  before_action :redirect_user_if_not_author  , only: [:show, :edit, :update, :destroy]
 
   def show
     @orders = current_user.orders
@@ -34,6 +36,14 @@ class UsersController < ApplicationController
 
   def check_user
     @user = User.find(current_user.id)
+  end
+
+  def redirect_user_if_not_author
+    user = User.find(params[:id])
+    unless current_user.id == user.id
+      flash[:danger] = "Vous n'êtes pas le propriétaire de ce compte !!"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
 end

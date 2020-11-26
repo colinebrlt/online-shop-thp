@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_cart
-  before_action :all_items, only: [:index]
-  before_action :find_item, only: [:show]
-  before_action :new_item, only: [:new]
+  before_action :all_items                    , only: [:index]
+  before_action :find_item                    , only: [:show]
+  before_action :new_item                     , only: [:new]
+  before_action :authenticate_user!           , only: [:create]
+  before_action :redirect_if_user_not_admin   , only: [:create]
   
   def index
   end 
