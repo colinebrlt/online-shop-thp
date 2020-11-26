@@ -27,7 +27,6 @@ class OrdersController < ApplicationController
         flash[:error] = e.message
         redirect_to current_user.cart
       end
-      
       generate_order(@cart)
       @cart.empty
     end
