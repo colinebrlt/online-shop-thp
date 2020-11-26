@@ -5,8 +5,8 @@ class Item < ApplicationRecord
   validates :description, length: { in: 20...5000 }
   validate :check_picture_presence
 
-  has_many :line_items
-  has_many :order_line_items
+  has_many :line_items, dependent: :destroy
+  has_many :order_line_items, dependent: :destroy
 
   has_one_attached :picture
 
