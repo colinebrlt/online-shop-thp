@@ -1,24 +1,55 @@
-# README
+# THE KITTEN SHOP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the kitten shop!
+![](https://icatcare.org/app/uploads/2018/07/Helping-your-new-cat-or-kitten-settle-in-1.png)
 
-Things you may want to cover:
+## What is the Kitten Shop?
+This project was one of two final projects 
 
-* Ruby version
+This is an online shop selling cute kitten pictures. Customers can sign up, sign in, put their favourite pictures in their cart, and pay. 
 
-* System dependencies
 
-* Configuration
+## Objectives of this project
 
-* Database creation
+The main objectives of this project were to:
+* learn the importance of the agile methodology and comprehend its importance when it comes to teamwork
+* realize that after 10 weeks of learning programming, we are able to create
 
-* Database initialization
+## How to open the website
 
-* How to run the test suite
+The quickest and easiest way to do it would be to open it on Heroku: 
 
-* Services (job queues, cache servers, search engines, etc.)
+Or you can run the following commands in your terminal:
 
-* Deployment instructions
+1) Clone this repository 
+```shell
+$ git clone
+```
 
-* ...
+2) Prepare the initialization of the repository
+```shell
+$ bundle install
+```
+
+```shell
+$ rails db:create
+```
+
+```shell
+$ rails db:migrate
+```
+
+```shell
+$ rails db:seed
+```
+
+3) Run the app in your server
+```shell
+$ rails server
+```
+
+4) Now all you need to do is open it in your faborite browser
+
+
+This is a rather minimalist version of the shop. We could have implemented countless features, but the point of this project was to deliver an MVP version in just 4 days time. 
+
