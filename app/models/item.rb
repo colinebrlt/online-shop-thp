@@ -6,4 +6,6 @@ class Item < ApplicationRecord
 
   has_many :line_items
   has_many :order_line_items
+
+
 end

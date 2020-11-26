@@ -11,4 +11,8 @@ class User < ApplicationRecord
     self.first_name
   end
 
+  def to_param
+    last_name
+  end
+
 end

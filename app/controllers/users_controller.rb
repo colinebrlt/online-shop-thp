@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path, success: "Vos informations ont bien été mises à jour"
+      redirect_to user_path(@user), success: "Vos informations ont bien été mises à jour"
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def check_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
 end

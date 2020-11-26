@@ -18,7 +18,7 @@
           <div class="card-body">
             <div class="row justify-content-around">
               <%= link_to "Ajouter au panier", line_items_path(item_id: item.id), class: "btn btn-success", method: "post", remote: true %>
-              <%= link_to "Voir les détails", item_path(item.id), class: "btn btn-outline-info" %>
+              <%= link_to "Voir les détails", item_path(item), class: "btn btn-outline-info" %>
             </div>
           </div>
         </div>
