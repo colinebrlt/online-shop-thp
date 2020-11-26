@@ -12,7 +12,11 @@
     </ul>
     <div class="card-body">
       <div class="row justify-content-around">
-        <%= link_to "Ajouter au panier", line_items_path(item_id: item.id), class: "btn btn-success", method: "post", remote: true %>
+        <% if user_signed_in?%>
+          <%= link_to "Ajouter au panier", line_items_path(item_id: item.id), class: "btn btn-success", method: "post", remote: true %>
+        <% else %>
+          <%= link_to "Ajouter au panier", new_user_session_path, class: "btn btn-success" %>
+        <% end %>
         <%= link_to "Retour à la page d'accueil", root_path, class: "btn btn-outline-info" %>
       </div>
     </div>
