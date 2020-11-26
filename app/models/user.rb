@@ -7,12 +7,22 @@ class User < ApplicationRecord
   has_many :orders
   has_one :cart
 
+  before_create :not_admin
+
   def has_first_name?
     self.first_name
   end
 
   def to_param
-    last_name
+    first_name
   end
 
+  def not_admin
+    self.is_admin = false
+  end
+
+  def is_admin?
+    self.is_admin
+  end
+  
 end
