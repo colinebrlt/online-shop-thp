@@ -30,4 +30,9 @@
 
     <%= render partial: 'order_line_item', collection: @order.order_line_items %>
   </div>
+    <div class="text-center">
+    <br>
+    <%= link_to  "Page d'accueil", root_path, class: "btn btn-info mx-2" %>
+    <%= link_to  "Retour au profil utilisateur", @order.user, class: "btn btn-outline-primary mx-2" %>
+  </div>
 </div>

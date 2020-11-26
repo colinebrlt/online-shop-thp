@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!, :set_cart
+  before_action :redirect_user_if_not_author
 
   def show
   end
@@ -12,4 +13,15 @@ class CartsController < ApplicationController
       format.js {}
     end 
   end
+
+  private
+
+  def redirect_user_if_not_author
+    cart = Cart.find(params[:id])
+    unless current_user.id == cart.user_id
+      flash[:danger] = "Vous n'êtes pas le propriétaire de ce panier !!"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
 end
