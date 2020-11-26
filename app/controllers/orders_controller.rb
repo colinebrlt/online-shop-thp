@@ -2,8 +2,8 @@ class OrdersController < ApplicationController
   before_action :set_cart                     , only: [:create]
   before_action :amounts
   before_action :authenticate_user!
-  before_action :redirect_user_if_not_author  , only: [:show]
   before_action :find_order                   , only: [:show]
+  before_action :redirect_user_if_not_author  , only: [:show]
 
   def new
   end
