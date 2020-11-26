@@ -6,9 +6,13 @@
   <div class="row">
     <% items.each do |item| %>
       <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="card mb-3"">
+        <div class="card mb-3">
           <h3 class="card-header"><%= item.title %></h3>
-          <%= image_tag  item.image_url, class: "d-block user-select-none img-fluid", width: "100%", height: "200" %>
+            <% if item.picture.attached? %>
+              <%= image_tag item.picture, class: "d-block user-select-none img-fluid", width: "100%", height: "200" %>
+            <% else %>
+              <p class="mx-auto mt-2 font-italic">Aucune image pour le moment !</p>
+            <% end %>
           <div class="card-body">
             <p class="card-text"><%= truncate(item.description, length: 100) %></p>
           </div>
