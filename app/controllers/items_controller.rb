@@ -16,8 +16,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to(root_path)
     else
-      flash[:danger] = "Votre chaton n'a pas pu être créé :("
-      redirect_back(fallback_location: root_path)
+      flash.now[:danger] = "Votre chaton n'a pas pu être créé, vous devez ajouter une image!"
+      render :new_admin_item
     end
   end
 
