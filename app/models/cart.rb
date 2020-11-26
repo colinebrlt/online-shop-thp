@@ -33,7 +33,7 @@ class Cart < ApplicationRecord
     self.line_items.each do |line_item|
       total += line_item.quantity
     end
-    return total
+    total
   end 
 
   def to_param
