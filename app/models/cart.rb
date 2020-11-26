@@ -37,6 +37,6 @@ class Cart < ApplicationRecord
   end 
 
   def to_param
-    "#{id}-votre-panier-#{self.user.first_name.parameterize}"
+    "#{id}-votre-panier"
   end
 end
