@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def to_param
-    first_name
+    "#{id}-mon-profil"
   end
 
   def not_admin
