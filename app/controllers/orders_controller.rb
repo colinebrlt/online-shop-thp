@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   before_action :set_cart                     , only: [:create]
   before_action :amounts
-  before_action :set_order                    , only: [:show]
   before_action :authenticate_user!
   before_action :redirect_user_if_not_author  , only: [:show]
+  before_action :find_order                   , only: [:show]
 
   def new
   end
@@ -33,10 +33,11 @@ class OrdersController < ApplicationController
     generate_order(@cart)
     @cart.empty
   end
+
     
   private
 
-  def set_order
+  def find_order
     @order = Order.find(params[:id])
   end
   

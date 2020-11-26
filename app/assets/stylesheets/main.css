@@ -4,6 +4,8 @@
    -ms-transform: rotate(20deg);
    -o-transform: rotate(20deg);
    transform: rotate(20deg);
+   height: auto;
+   width: 65%;
 }
 
 .footer-container {
